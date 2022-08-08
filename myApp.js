@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const mySecret = process.env["MONGO_URI"];
 mongoose.connect(
-  (MONGO_URI="mongodb+srv://freecodecamp:freecodecamp@freecodecamp.bomutq3.mongodb.net/freeCodeCamp?retryWrites=true&w=majority"),
+  (MONGO_URI="mongodb+srv://batuhan:batuhan@freecodecamp.gmy6l4b.mongodb.net/FreeCodeCamp?retryWrites=true&w=majority"),
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
