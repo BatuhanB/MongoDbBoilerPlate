@@ -27,7 +27,8 @@ const createAndSavePerson = (done) => {
     favoriteFoods: ["Apple,Banana"],
   }); //create a new person object
   person.save(function (err, data) {
-    done(err, data);
+    if (error) return done(error);
+    done(null, data);
     console.log("Person Has Been Saved" + data);
   }); //save to db table that we have created
 };
