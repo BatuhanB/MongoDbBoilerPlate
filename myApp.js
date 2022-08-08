@@ -15,9 +15,7 @@ const Scheme = mongoose.Schema; //we are defining a db scheme(table and fields) 
 const personScheme = new Scheme({
   personName: { type: String, required: true },
   age: Number,
-  city: String,
-  programmingLanguages: [String],
-  foods: [String],
+  favoriteFoods: [String],
 }); //defining a table
 
 const Person = mongoose.model("Person", personScheme); //told mongodb to get as a model
@@ -26,16 +24,18 @@ const createAndSavePerson = (done) => {
   const person = new Person({
     personName: "Batuhan Bali",
     age: 22,
-    city: Istanbul,
-    programmingLanguages: ["C#,Java,React,Angular"],
-    foods: ["Apple,Banana"],
+    favoriteFoods: ["Apple,Banana"],
   }); //create a new person object
   person.save(function (err, data) {
     done(err, data);
     console.log("Person Has Been Saved" + data);
   }); //save to db table that we have created
 };
-
+const arrayOfPeople = [
+  { name: 'Adam', age: 24, favoriteFoods: ['indomie noodle'] },
+  { name: 'Sola', age: 36, favoriteFoods: ['roasted yam'] },
+  { name: 'Colins', age: 48, favoriteFoods: ['Red wine'] },
+];
 const createManyPeople = (arrayOfPeople, done) => {
   Person.create(arrayOfPeople, function (err, data) {
     done(err, data);
